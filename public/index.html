@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Frontend App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .welcome-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 2rem;
+            font-weight: 300;
+        }
+        
+        .welcome-section p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .feature-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .cta-section {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cta-section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .info-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 15px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .info-item {
+            padding: 20px;
+        }
+        
+        .info-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .info-item p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            border-top: 1px solid #e9ecef;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .feature-card, .cta-section, .info-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .feature-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        
+        .feature-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌟 Simple Frontend</h1>
+            <p>Beautiful, Clean & Modern Web Interface</p>
+        </div>
+        
+        <div class="content">
+            <div class="welcome-section">
+                <h2>Welcome to Your Frontend App</h2>
+                <p>
+                    This is a simple, elegant frontend application built with modern web technologies. 
+                    It features a clean design, responsive layout, and smooth animations to provide 
+                    an excellent user experience across all devices.
+                </p>
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <span class="feature-icon">🎨</span>
+                    <h3>Modern Design</h3>
+                    <p>Clean and contemporary interface with beautiful gradients and smooth animations.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">📱</span>
+                    <h3>Responsive</h3>
+                    <p>Perfectly optimized for desktop, tablet, and mobile devices with fluid layouts.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Fast & Lightweight</h3>
+                    <p>Optimized performance with minimal load times and efficient code structure.</p>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3>Get Started Today</h3>
+                <p>Ready to customize this frontend for your needs?</p>
+                <button class="btn" onclick="showMessage()">Click Me!</button>
+                <button class="btn" onclick="changeTheme()">Change Theme</button>
+            </div>
+
+            <div class="info-section">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h4>🚀 Easy to Use</h4>
+                        <p>Simple and intuitive interface</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>🔧 Customizable</h4>
+                        <p>Easy to modify and extend</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>🎯 Purpose Built</h4>
+                        <p>Designed for your specific needs</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>💡 Modern Tech</h4>
+                        <p>Built with latest web standards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Simple Frontend App. Built with ❤️ using HTML, CSS & JavaScript.</p>
+            <p id="current-time"></p>
+        </div>
+    </div>
+
+    <script>
+        // Update current time
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleString();
+            document.getElementById('current-time').textContent = `Current time: ${timeString}`;
+        }
+        
+        // Initialize
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Interactive functions
+        function showMessage() {
+            alert('Hello! Welcome to your simple frontend application! 🎉');
+        }
+
+        let isDarkTheme = false;
+        function changeTheme() {
+            const body = document.body;
+            
+            if (!isDarkTheme) {
+                body.style.background = 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)';
+                document.querySelector('.container').style.background = '#2c3e50';
+                document.querySelector('.container').style.color = '#ecf0f1';
+                
+                // Update feature cards
+                const cards = document.querySelectorAll('.feature-card');
+                cards.forEach(card => {
+                    card.style.background = '#34495e';
+                    card.style.color = '#ecf0f1';
+                });
+                
+                isDarkTheme = true;
+            } else {
+                body.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                document.querySelector('.container').style.background = 'white';
+                document.querySelector('.container').style.color = '#333';
+                
+                // Reset feature cards
+                const cards = document.querySelectorAll('.feature-card');
+                cards.forEach(card => {
+                    card.style.background = '#f8f9fa';
+                    card.style.color = '#333';
+                });
+                
+                isDarkTheme = false;
+            }
+        }
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click effect to feature cards
+            const cards = document.querySelectorAll('.feature-card');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-5px)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "simple-frontend-app",
+  "version": "1.0.0",
+  "description": "A simple frontend application with Node.js server",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": ["frontend", "html", "css", "javascript", "simple"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
