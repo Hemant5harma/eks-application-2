@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'nodejs' // Ensure this matches your Jenkins NodeJS tool name
+        nodejs 'nodejs' 
     }
 
     stages {
@@ -46,12 +46,13 @@ pipeline {
         }
         stage('Deploy to EKS') {
             steps {
-               sh '''
+                sh '''
                     aws eks --region ap-south-1 update-kubeconfig --name eks-ingress
                     kubectl get svc
                 '''
+            }
+        }
     }
-
 
     post {
         success {
