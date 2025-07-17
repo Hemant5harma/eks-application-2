@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: eks2
+  namespace: ingress-nm
   labels:
     app: eks2
-    namespace: ingress-nm
 spec:
   replicas: 3
   selector:
