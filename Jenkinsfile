@@ -48,7 +48,8 @@ pipeline {
             steps {
                 sh '''
                     aws eks --region ap-south-1 update-kubeconfig --name eks-ingress
-                    kubectl get svc
+                    kubectl apply -f deployment.yaml
+                    kubectl apply -f service.yaml
                 '''
             }
         }

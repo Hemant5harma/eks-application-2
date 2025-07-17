@@ -16,8 +16,8 @@ spec:
         app: eks2
     spec:
       containers:
-      - name: eks2-container
-        image: hemanthub/eks-application-2:latest
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 3000
+        - name: eks2-container
+          image: hemanthub/eks-application-2:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
