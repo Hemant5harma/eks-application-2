@@ -5,8 +5,10 @@ metadata:
   namespace: ingress-nm
 spec:
   selector:
-    app: eks2
+    app: eks2  # Make sure your Deployment pods are labeled accordingly
   ports:
-    - port: 3000
-      targetPort: 80
-  type: ClusterIP
+    - name: http
+      protocol: TCP
+      port: 80          # Ingress points to this port
+      targetPort: 3000  # Your container listens here
+  type: ClusterIP      # Suitable for ALB ingress – no need for NodePort
