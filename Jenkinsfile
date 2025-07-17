@@ -46,11 +46,8 @@ pipeline {
         }
         stage('Deploy to EKS') {
             steps {
-                sh '''
-                    aws eks --region ap-south-1 update-kubeconfig --name eks-ingress
-                    kubectl apply -f deployment.yaml
-                    kubectl apply -f service.yaml
-                '''
+                sh 'kubectl apply -f k8s/deployment.yml'
+                sh 'kubectl apply -f k8s/service.yml'
             }
         }
     }
