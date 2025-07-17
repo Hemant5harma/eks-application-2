@@ -48,7 +48,7 @@ pipeline {
             steps {
                 sh 'kubectl apply -f k8s/deployment.yml'
                 sh 'kubectl apply -f k8s/service.yml'
-                sh 'kubectl rollout restart deployment/eks2'
+                sh 'kubectl rollout restart deployment/eks2 -n ingress-nm'
             }
         }
     }
