@@ -47,6 +47,7 @@ pipeline {
         stage('Deploy to EKS') {
             steps {
                sh '''
+                    aws eks --region ap-south-1 update-kubeconfig --name eks-ingress
                     kubectl get svc
                 '''
     }
